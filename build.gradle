@@ -1,20 +1,16 @@
 plugins {
-    id 'groovy'
+    id 'java'
 }
-
-group = 'ru.netology'
-version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.apache.groovy:groovy:4.0.14'
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'io.rest-assured:rest-assured:5.2.0' // REST Assured
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2' // JUnit для тестирования
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform() // Указываем, что используем JUnit 5
 }
