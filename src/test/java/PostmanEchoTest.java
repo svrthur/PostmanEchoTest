@@ -1,4 +1,4 @@
-package your.package.name; // Замените на ваш пакет
+package com.example; // Замените на ваш пакет
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class PostmanEchoTest {
 
     @Test
-    public void testPostRequestNegative() {
+    public void testPostRequest() {
         String requestBody = "some data"; // Данные, которые мы отправляем
 
         // Выполняем запрос
@@ -21,5 +21,6 @@ public class PostmanEchoTest {
                 .post("/post") // Выполняем POST-запрос
                 .then()
                 .statusCode(200) // Проверяем, что статус ответа 200
-                .body("invalidField", equalTo(requestBody)); // Проверяем несуществующее поле
+                .body("data", equalTo(requestBody)); // Проверяем, что возвращённые данные соответствуют отправленным
     }
+}
